@@ -18,8 +18,6 @@ public class ProductInfoPage {
 	private By productImages = By.cssSelector("ul.thumbnails img");
 	private By productMetaData = By.cssSelector("div#content ul.list-unstyled:nth-of-type(1) li");
 	private By productPriceData = By.cssSelector("div#content ul.list-unstyled:nth-of-type(2) li");
-	private By qty = By.id("input-quantity");
-	private By addToCartBtn = By.id("button-cart");
 
 	private Map<String, String> productInfoMap;
 
