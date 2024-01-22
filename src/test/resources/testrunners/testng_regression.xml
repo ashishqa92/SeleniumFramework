@@ -13,20 +13,23 @@
 			class-name="com.qa.opencart.listeners.TestAllureListener" />
 	</listeners>
 
-	<test name="Open Cart Login Page Test">
+	<test name="Open Cart Login Page Test - ch">
+		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="com.qa.opencart.tests.LoginPageTest" />
 		</classes>
 	</test>
 
 
-	<test name="Open Cart Product Info Page Test">
+	<test name="Open Cart Product Info Page Test - ch">
+		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="com.qa.opencart.tests.ProductInfoPageTest" />
 		</classes>
 	</test>
 
-	<test name="Open Cart Accounts Page Test">
+	<test name="Open Cart Accounts Page Test - ch">
+		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="com.qa.opencart.tests.AccountsPageTest" />
 		</classes>
