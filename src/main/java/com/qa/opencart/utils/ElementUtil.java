@@ -443,7 +443,7 @@ public class ElementUtil {
 		}
 		if (element == null) {
 			try {
-				throw new Exception("ELEMENTNOTFOUNDEXCEPTION");
+				throw new Exception("ELEMENT_NOT_FOUND_EXCEPTION");
 			} catch (Exception e) {
 				System.out.println("element is not found exception....tried for :" + timeOut
 						+ " with the interval of : " + pollingTime + "ms");
