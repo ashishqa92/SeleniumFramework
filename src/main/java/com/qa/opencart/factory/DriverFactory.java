@@ -12,12 +12,9 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.io.FileHandler;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class DriverFactory {
@@ -87,32 +84,26 @@ public class DriverFactory {
 	private void init_remoteDriver(String browser) {
 
 		System.out.println("Running test on remote grid server: " + browser);
-		if (browser.equalsIgnoreCase("chrome")) {
-			// selenium 3.x
-			DesiredCapabilities cap = new DesiredCapabilities();
-//			cap.setBrowserName("chrome");
-			cap.setCapability("browserName", "chrome");
-			cap.setCapability("enableVNC", true);
+		try {
+			switch (browser.toLowerCase().trim()) {
+			case "chrome":
+				tlDriver.set(
+						new RemoteWebDriver(new URL(prop.getProperty("huburl")), optionsManager.getChromeOptions()));
+				break;
+			case "firefox":
+				tlDriver.set(
+						new RemoteWebDriver(new URL(prop.getProperty("huburl")), optionsManager.getFirefoxOptions()));
+				break;
+			case "edge":
+				tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("huburl")), optionsManager.getEdgeOptions()));
+				break;
 
-			cap.setCapability(ChromeOptions.CAPABILITY, optionsManager.getChromeOptions());
-			try {
-				tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("huburl")), cap));
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
+			default:
+				System.out.println("wrong browser info..can not run on grid remote machine....");
+				break;
 			}
-		}
+		} catch (MalformedURLException e) {
 
-		else if (browser.equalsIgnoreCase("firefox")) {
-			DesiredCapabilities cap = new DesiredCapabilities();
-			cap.setCapability("browserName", "firefox");
-			cap.setCapability("enableVNC", true);
-			cap.setCapability(FirefoxOptions.FIREFOX_OPTIONS, optionsManager.getFirefoxOptions());
-			cap.setAcceptInsecureCerts(true);
-			try {
-				tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("huburl")), cap));
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
-			}
 		}
 
 	}

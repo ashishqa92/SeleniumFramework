@@ -35,11 +35,13 @@
 		</classes>
 	</test>
 
-	<!-- <test name="Open Cart Product Info Page Test"> <classes> <class name="com.qa.opencart.tests.ProductInfoPageTest" 
+	<!-- <test name="Open Cart Product Info Page Test"> <classes> <class
+	name="com.qa.opencart.tests.ProductInfoPageTest" 
 		/> </classes> </test> -->
 
 
-	<!-- <test name="Open Cart Registration Page Test"> <classes> <class name="com.qa.opencart.tests.RegistrationPageTest" 
+	<!-- <test name="Open Cart Registration Page Test"> <classes> <class
+	name="com.qa.opencart.tests.RegistrationPageTest" 
 		/> </classes> </test> -->
 
 </suite>

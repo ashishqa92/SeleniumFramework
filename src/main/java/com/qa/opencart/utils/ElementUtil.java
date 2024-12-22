@@ -71,7 +71,7 @@ public class ElementUtil {
 	}
 
 	public String getAttributeValue(By locator, String attrName) {
-		String attrVal = getElement(locator).getAttribute(attrName);
+		String attrVal = getElement(locator).getDomAttribute(attrName);
 		System.out.println(attrVal);
 		return attrVal;
 	}
@@ -119,7 +119,7 @@ public class ElementUtil {
 		List<String> attrList = new ArrayList<String>();
 
 		for (WebElement e : eleList) {
-			String attrValue = e.getAttribute(attributeName);
+			String attrValue = e.getDomAttribute(attributeName);
 			attrList.add(attrValue);
 		}
 		return attrList;
