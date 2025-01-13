@@ -32,7 +32,7 @@ public class DriverFactory {
 	 * @param browserName
 	 * @return this will return the driver
 	 */
-	public WebDriver init_driver(Properties prop) {
+	public WebDriver initDriver(Properties prop) {
 		String browserName = prop.getProperty("browser").trim();
 
 		System.out.println("browser name is : " + browserName);
@@ -43,7 +43,7 @@ public class DriverFactory {
 
 			if (Boolean.parseBoolean(prop.getProperty("remote"))) {
 				// remote code
-				init_remoteDriver("chrome");
+				initRemoteDriver("chrome");
 			} else {
 				// local
 				tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
@@ -54,7 +54,7 @@ public class DriverFactory {
 		else if (browserName.equalsIgnoreCase("firefox")) {
 			if (Boolean.parseBoolean(prop.getProperty("remote"))) {
 				// remote code
-				init_remoteDriver("firefox");
+				initRemoteDriver("firefox");
 			} else {
 				tlDriver.set(new FirefoxDriver(optionsManager.getFirefoxOptions()));
 			}
@@ -81,7 +81,7 @@ public class DriverFactory {
 		return getDriver();
 	}
 
-	private void init_remoteDriver(String browser) {
+	private void initRemoteDriver(String browser) {
 
 		System.out.println("Running test on remote grid server: " + browser);
 		try {
@@ -120,7 +120,7 @@ public class DriverFactory {
 	 * 
 	 * @return this will return properties prop reference
 	 */
-	public Properties init_prop() {
+	public Properties initProp() {
 		prop = new Properties();
 		FileInputStream ip = null;
 
