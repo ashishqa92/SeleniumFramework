@@ -42,12 +42,12 @@ public class LoginPage {
 
 	@Step("checking frogot pwd link exist or not.....")
 	public boolean isForgotPwdLinkExist() {
-		return eleUtil.doIsDisplayed(forgotPwdLink);
+		return eleUtil.isElementDisplayed(forgotPwdLink);
 	}
 
 	@Step("checking register link exist or not.....")
 	public boolean isRegisterLinkExist() {
-		return eleUtil.doIsDisplayed(registerLink);
+		return eleUtil.isElementDisplayed(registerLink);
 	}
 
 	@Step("do login with username: {0} and password: {1}")

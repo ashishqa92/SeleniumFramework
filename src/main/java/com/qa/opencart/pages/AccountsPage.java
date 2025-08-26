@@ -36,7 +36,7 @@ public class AccountsPage {
 	}
 	
 	public boolean isLogoutLinkExist() {
-		return eleUtil.doIsDisplayed(logoutLink);
+		return eleUtil.isElementDisplayed(logoutLink);
 	}
 	
 	public void logout() {
@@ -56,7 +56,7 @@ public class AccountsPage {
 	}
 	
 	public boolean isSearchExist() {
-		return eleUtil.doIsDisplayed(searchField);
+		return eleUtil.isElementDisplayed(searchField);
 	}
 	
 	public SearchResultsPage doSearch(String productName) {

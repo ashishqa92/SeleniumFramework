@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -53,6 +54,11 @@ public class ElementUtil {
 		doClear(locator);
 		getElement(locator).sendKeys(value);
 	}
+	
+	public void doSendKeys(By locator, CharSequence... value) {
+		doClear(locator);
+		getElement(locator).sendKeys(value);
+	}
 
 	public void doSendKeys(By locator, String value, int timeOut) {
 		doPresenceOfElementLocated(locator, timeOut).sendKeys(value);
@@ -76,8 +82,22 @@ public class ElementUtil {
 		return attrVal;
 	}
 
-	public boolean doIsDisplayed(By locator) {
-		return getElement(locator).isDisplayed();
+	public boolean isElementDisplayed(By locator) {
+		try {
+			return getElement(locator).isDisplayed();
+		} catch (NoSuchElementException e) {
+			System.out.println("Element is not displayed : " + locator);
+			return false;
+		}
+	}
+	
+	public boolean isElementEnabled(By locator) {
+		try {
+			return getElement(locator).isEnabled();
+		} catch (ElementNotInteractableException e) {
+			System.out.println("Element is not enabled : " + locator);
+			return false;
+		}
 	}
 
 	public boolean isElementExist(By locator) {

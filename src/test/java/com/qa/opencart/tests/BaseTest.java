@@ -15,6 +15,7 @@ import com.qa.opencart.pages.ProductInfoPage;
 import com.qa.opencart.pages.RegistrationPage;
 import com.qa.opencart.pages.SearchResultsPage;
 
+//@Listeners(ChainTestListener.class)
 public class BaseTest {
 
 	DriverFactory df;
